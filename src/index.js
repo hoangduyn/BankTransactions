@@ -878,10 +878,10 @@ const checkCreditAmount = (amount, worksheet) => {
             return index;
         }
 
-        for (const [index, row] of data.entries()){
-            // result.push(row);
-            if(includes(row, ))
-        }
+        // for (const [index, row] of data.entries()){
+        //     // result.push(row);
+        //     if(includes(row, ))
+        // }
 
         console.log(result.map((item, index) => {
             return {
