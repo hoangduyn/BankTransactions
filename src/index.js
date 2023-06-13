@@ -270,839 +270,466 @@ const checkCreditAmount = (amount, worksheet) => {
 //     });
 
     const pdfData = {
-        "account_number": "607704060102224",
+        "account_number": "0107247754",
         "data": [
             [
-                "S6CT ",
-                "Ngay GD ",
-                "Ngay hieu luc ",
-                "Loai GD ",
-                "So sec/so ref ",
-                "Phat sinh ng ",
-                "Phat sinh co ",
-                "sodu ",
-                "Noi dung "
+                "STT/No ",
+                "Ngay/Date ",
+                "So GDI Transaction number ",
+                "Noi Dung/Content ",
+                "Ps giam(No)/ Debit ",
+                "Ps tang(Co)/ Credit ",
+                "so dwl Balance "
             ],
             [
-                "Seq.No. ",
-                "Tran Date ",
-                "Effect Date ",
-                "Tran ",
-                "Cheque No./ Reference ",
-                "Withdrawal ",
-                "Deposit ",
-                "Balance ",
-                "Remarks "
+                "1 ",
+                "06/03/2023 ",
+                "FT2306573JF8 ",
+                "THUPHIDINH KY DICH VU SMS KHDN THANG 3 NAM 2023 ",
+                "27,500 ",
+                "",
+                "3,991,476 "
+            ],
+            [
+                "2 ",
+                "10/03/2023 ",
+                "FT23069YFC99\\BNK ",
+                "MBVCB.3206957277.040905 BUITHITHANHTHUY TRA TIENHANG.CTTU 0711000232464 NGUYEN VAN MINH TOI 0032100002839004 CT TNHH TMDVYNHAKHOAMINH PHUONGNGANHANG PHUONG DONG (OCB) ",
+                "0 ",
+                "490,000,000 ",
+                "493,991,476 "
+            ],
+            [
+                "3 ",
+                "10/03/2023 ",
+                "FT23069RKJJ9\\BNK ",
+                "MBVCB.3206969386.043951 BUITHITHANH THUY TRA TIEN HANG.CT TU 0711000232464 NGUYEN VAN MINH TOI 0032100002839004 CT TNHH TMDVY NHA KHOA MINH PHUONGNGANHANG PHUONG DONG (OCB) ",
+                "0 ",
+                "490,000,000 ",
+                "983.991,476 "
+            ],
+            [
+                "4 ",
+                "10/03/2023 ",
+                "FT23069KBYRPBNK ",
+                "MBVCB.3206963845.048132 NGUYENVANMINH CHUYENTIEN.CT TU 0711000232464 NGUYEN VAN MINH TOI 0032100002839004 CT TNHH TMDVYNHA KHOAMINH PHUONGNGANHANG PHUONG DONG (OCB) ",
+                "0 ",
+                "490,000,000 ",
+                "1,473,991,476 "
+            ],
+            [
+                "STT/No ",
+                "Ngay/Date ",
+                "So GDI Transaction number ",
+                "Noi Dung/Content ",
+                "Ps giam(No)l Debit ",
+                "Ps tang(Co)l Credit ",
+                "So duI Balance "
+            ],
+            [
+                "5 ",
+                "10/03/2023 ",
+                "FT23069YBBD9\\BNK ",
+                "MBVCB.3206977372.051953 BUITHITHANH THUY TRA TIEN HANG.CT TU 0711000232464 NGUYEN VAN MINH TOI 0032100002839004 CT TNHH TMDV Y NHA KHOA MINH PHUONG NGAN HANG PHUONG DONG (OCB) ",
+                "0 ",
+                "490,000,000 ",
+                "1,963,991,476 "
+            ],
+            [
+                "6 ",
+                "10/03/2023 ",
+                "FT23069F56N8\\BNK ",
+                "MBVCB.3206980800.055865 BUITHITHANHTHUY TRA TIEN HANG.CT TU 0711000232464 NGUYEN VAN MINH TOI 0032100002839004 CT TNHH TMDVY NHA KHOA MINH PHUONG NGAN HANG PHUONG DONG (OCB) ",
+                "0 ",
+                "40,000 ,000 ",
+                "2.00 "
             ],
             [
                 "",
+                "10/03/2023 ",
+                "FT23069J41P6\\BNK ",
+                "MBVCB.3207016142.072025 NGUYEN MINHSOWN TRA TIEN HANG.CT TU 0711000232464 NGUYEN VAN MINH TOI 0032100002839004 CT TNHH TMDVYNHA KHOA MINHPHUONGNGAN HANG PHUONG DONG (OCB) ",
+                "0 ",
                 "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
+                "2.08 "
+            ],
+            [
+                "8 ",
+                "10/03/2023 ",
+                "T23069M8QNWBr K ",
+                "OCB:0032100002839004:NG0 YENMINH SON TRA TIEN HANG ",
+                "0 ",
+                "490,000,000 ",
                 ""
             ],
             [
-                "3760449786 ",
-                "01/01/2022 ",
-                "01/01/2022 ",
-                "SC32 ",
                 "",
-                "33,000 ",
+                "10/03/2023 ",
+                "FT230693NFGXBNK ",
+                "CTTNHHTHUONGMA DICHVUYNHAKHOA MINH PHUONGCHUYEN TIEN ",
                 "0 ",
-                "506,740 ",
+                "800,000 ",
                 ""
             ],
             [
-                "3767633795 ",
-                "07/01/2022 ",
-                "07/01/2022 ",
-                "FTCR ",
-                "60122000709 47 ",
+                "10 ",
+                "13/03/2023 ",
+                "FT230/20CTK6\\BNK ",
+                "NGUYEN MINH SON TRA TIEN HANG ",
                 "0 ",
-                "3,600.000 ",
-                "4.106,740 ",
-                "IBNOPTIEN "
-            ],
-            [
-                "3769038128 ",
-                "07/01/2022 ",
-                "07/01/2022 ",
-                "SMR1 ",
-                "",
-                "30,000 ",
-                "0 ",
-                "4,076,740 ",
-                ""
-            ],
-            [
-                "3769038129 ",
-                "07/01/2022 ",
-                "07/01/2022 ",
-                "VATX ",
-                "",
-                "3,000 ",
-                "0 ",
-                "4,073,740 ",
-                ""
-            ],
-            [
-                "3772553465 ",
-                "10/01/2022 ",
-                "10/01/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "3,524,356 ",
-                "",
-                "549.384 ",
-                "THUNO TUDONG HD0095/CTYTHIEN PHUC "
-            ],
-            [
-                "3803413160 ",
-                "31/01/2022 ",
-                "31/01/2022 ",
-                "CRIN ",
-                "",
-                "0 ",
-                "75 ",
-                "549,459 ",
-                ""
-            ],
-            [
-                "3811518283 ",
-                "08/02/2022 ",
-                "08/02/2022 ",
-                "SC32 ",
-                "",
-                "33,000 ",
-                "0 ",
-                "516,459 ",
-                ""
-            ],
-            [
-                "3812642225 ",
-                "09/02/2022 ",
-                "09/02/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "16,459 ",
-                "0 ",
-                "500,000 ",
-                "THUNO TUDONG HD0095/CTYTHIEN "
+                "320,000,000 ",
+                "3,693,991,476 "
             ],
             [
                 "",
+                "13/03/2023 ",
+                "T23072JS1K2BNK ",
+                "PHAM KIM OANH TRA TIEN HANG ",
+                "0 ",
+                "490,000,000 ",
+                "4,183, "
+            ],
+            [
                 "",
+                "13/03/2023 ",
+                "FT2307270H5ZBNK ",
+                "PHAMKIMOANHTRA TIEN HAG ",
+                "0 ",
+                "199,640,000 ",
+                "4,383,631,476 "
+            ],
+            [
+                "13 ",
+                "13/03/2023 ",
+                "FT230/29LN2X\\BNK ",
+                "NGUYEN TRI SON TRA TRA TIEN HANG ",
+                "0 ",
+                "206,724,000 ",
+                "4,590,355,476 "
+            ],
+            [
+                "14 ",
+                "13/03/2023 ",
+                "FT23072HX688\\BNK ",
+                "NGUYEN MINHNGUYE TRA TIEN HANG ",
+                "0 ",
+                "320,000,000 ",
+                "4,910,355,476 "
+            ],
+            [
                 "",
+                "13/03/2023 ",
+                "FT23072WGZ7S\\BNK ",
+                "CHTDUNGTRA TIENHANG ",
+                "0 ",
+                "496.795,000 ",
+                "5.407. T30.476 "
+            ],
+            [
+                "16 ",
+                "13/03/2023 ",
+                "FT230/2Y3YBHBNK ",
+                "CHIDUNG TRA TIEN HANG ",
+                "0 ",
                 "",
+                "5,517,150,476 "
+            ],
+            [
                 "",
+                "13/03/2023 ",
+                "T23072YQLYG\\BN K ",
+                "OUONGTHANHPHUONG TRA TIEN HAG ",
+                "0 ",
+                "120,000,000 ",
+                "5,637, 150.476 "
+            ],
+            [
+                "18 ",
+                "13/03/2023 ",
+                "FT23072GSWWWBN K ",
+                "NGUYENVANSONTRA TIEN HANG ",
+                "0 ",
+                "96,600,000 ",
+                "5,733,750,476 "
+            ],
+            [
+                "19 ",
+                "13/03/2023 ",
+                "FT230/2S9HFSBNK ",
+                "MAIPHUONGNOPTIEN VAO TK ",
+                "0 ",
+                "490,000,000 ",
+                "6,223,750,476 "
+            ],
+            [
+                "20 ",
+                "13/03/2023 ",
+                "FT230/20D0TN\\BNK ",
+                "MAI PHUONG NOP TIEN VAO TK ",
+                "0 ",
+                "490,000,000 ",
+                "6,713,750,476 "
+            ],
+            [
+                "21 ",
+                "13/03/2023 ",
+                "FT230722TGX4BNK ",
+                "MATPHUONGNOPTIEN VAO TK ",
+                "0 ",
+                "120,000,000 ",
+                "6,833,750,476 "
+            ],
+            [
+                "STT/No ",
+                "NgaylDate ",
+                "So GDl Transaction number ",
+                "Noi Dung/Content ",
+                "Ps giam(No)/ Debit ",
+                "Ps tang(Co)/ Credit ",
+                "So duI Balance "
+            ],
+            [
+                "22 ",
+                "13/03/2023 ",
+                "FT230723H56Z\\BNK ",
+                "MAI PHUONG NOP TIEN VAO TK ",
                 "",
-                "",
-                "",
-                "PHUC "
-            ],
-            [
-                "3816329264 ",
-                "12/02/2022 ",
-                "12/02/2022 ",
-                "NBCR ",
-                "",
-                "0 ",
-                "3,500,000 ",
-                "4,000,000 ",
-                "NOPTIEN-120222- 11:04:35512814 "
-            ],
-            [
-                "3816599568 ",
-                "12/02/2022 ",
-                "12/02/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "3,292,880 ",
-                "0 ",
-                "707,120 ",
-                "THUNOTUDONG HD0095/CTYTHIEN PHUC "
-            ],
-            [
-                "3817076676 ",
-                "12/02/2022 ",
-                "12/02/2022 ",
-                "SMR1 ",
-                "",
-                "30,000 ",
-                "0 ",
-                "677,120 ",
-                ""
-            ],
-            [
-                "3817076677 ",
-                "12/02/2022 ",
-                "12/02/2022 ",
-                "VATX ",
-                "",
-                "3,000 ",
-                "0 ",
-                "674,120 ",
-                ""
-            ],
-            [
-                "3837789634 ",
-                "28/02/2022 ",
-                "28/02/2022 ",
-                "CRIN ",
-                "",
-                "0 ",
-                "48 ",
-                "674,168 ",
-                ""
-            ],
-            [
-                "3839644209 ",
-                "01/03/2022 ",
-                "01/03/2022 ",
-                "SC32 ",
-                "",
-                "33,000 ",
-                "0 ",
-                "641,168 ",
-                ""
-            ],
-            [
-                "3845713125 ",
-                "05/03/2022 ",
-                "05/03/2022 ",
-                "SMR1 ",
-                "",
-                "30,000 ",
-                "0 ",
-                "611,168 ",
-                ""
-            ],
-            [
-                "3845713126 ",
-                "05/03/2022 ",
-                "05/03/2022 ",
-                "VATX ",
-                "",
-                "3,000 ",
-                "0 ",
-                "608,168 ",
-                ""
-            ],
-            [
-                "3850175752 ",
-                "09/03/2022 ",
-                "09/03/2022 ",
-                "FTCR ",
-                "60122007862 96 ",
-                "0 ",
-                "13,100,000 ",
-                "13.708.168 ",
-                "IBNOPTIEN "
-            ],
-            [
-                "3850526515 ",
-                "09/03/2022 ",
-                "09/03/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "3,083,811 ",
-                "0 ",
-                "10,624,357 ",
-                "THULAICTYTHIEN PHUC "
-            ],
-            [
-                "3850540112 ",
-                "09/03/2022 ",
-                "09/03/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "10,000,000 ",
-                "0 ",
-                "624,357 ",
-                "THU GOC CTY THIEN PHUC "
-            ],
-            [
-                "3881206236 ",
-                "31/03/2022 ",
-                "31/03/2022 ",
-                "CRIN ",
-                "",
-                "",
-                "24 ",
-                "624,381 ",
-                ""
-            ],
-            [
-                "3883040328 ",
-                "01/04/2022 ",
-                "01/04/2022 ",
-                "SC32 ",
-                "",
-                "33,000 ",
-                "0 ",
-                "591,381 ",
-                ""
-            ],
-            [
-                "S6CT ",
-                "Ngay GD ",
-                "Ngay hieu luc ",
-                "Loai GD ",
-                "So sec/so ref ",
-                "Phat sinh ng ",
-                "Phat sinh co ",
-                "sodur ",
-                "Noi dung "
-            ],
-            [
-                "3889218499 ",
-                "05/04/2022 ",
-                "05/04/2022 ",
-                "VATX ",
-                "",
-                "3,000 ",
-                "0 ",
-                "558,381 ",
-                ""
-            ],
-            [
-                "3893174699 ",
-                "08/04/2022 ",
-                "08/04/2022 ",
-                "NBCR ",
-                "",
-                "0 ",
-                "13.400.000 ",
-                "13.958.381 ",
-                "Nguyen Thanh Dien chuyen tien "
-            ],
-            [
-                "3894632773 ",
-                "09/04/2022 ",
-                "09/04/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "13.304.083 ",
-                "0 ",
-                "654,298 ",
-                "THUNOTU DONG HD0095/CTYTHIEN PHUC "
-            ],
-            [
-                "3925038561 ",
-                "30/04/2022 ",
-                "30/04/2022 ",
-                "SC32 ",
-                "",
-                "33,000 ",
-                "0 ",
-                "621,298 ",
-                ""
-            ],
-            [
-                "3935455116 ",
-                "07/05/2022 ",
-                "07/05/2022 ",
-                "SMR1 ",
-                "",
-                "30,000 ",
-                "0 ",
-                "591,298 ",
-                ""
-            ],
-            [
-                "3935455117 ",
-                "07/05/2022 ",
-                "07/05/2022 ",
-                "VATX ",
-                "",
-                "3,000 ",
-                "0 ",
-                "588,298 ",
-                ""
-            ],
-            [
-                "3937033147 ",
-                "09/05/2022 ",
-                "09/05/2022 ",
-                "FTCR ",
-                "60122015332 06 ",
-                "0 ",
-                "13,200.000 ",
-                "13,788,298 ",
-                "IBNOPTIEN "
-            ],
-            [
-                "3937857487 ",
-                "09/05/2022 ",
-                "09/05/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "13,090,917 ",
-                "",
-                "697.381 ",
-                "THUNOTUDONG HD0095/CTYTHIEN PHUC "
-            ],
-            [
-                "3972014326 ",
-                "01/06/2022 ",
-                "01/06/2022 ",
-                "SC32 ",
-                "",
-                "33,000 ",
-                "0 ",
-                "664,381 ",
-                ""
-            ],
-            [
-                "3980038454 ",
-                "06/06/2022 ",
-                "06/06/2022 ",
-                "SMR1 ",
-                "",
-                "30,000 ",
-                "0 ",
-                "634,381 ",
-                ""
-            ],
-            [
-                "3980038455 ",
-                "06/06/2022 ",
-                "06/06/2022 ",
-                "VATX ",
-                "",
-                "3,000 ",
-                "0 ",
-                "631,381 ",
-                ""
-            ],
-            [
-                "3983941723 ",
-                "09/06/2022 ",
-                "09/06/2022 ",
-                "FTCR ",
-                "60122019585 11 ",
-                "0 ",
-                "13,100,000 ",
-                "13,731,381 ",
-                "IBNOPTIEN "
-            ],
-            [
-                "3984661208 ",
-                "09/06/2022 ",
-                "09/06/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "13,083,811 ",
-                "0 ",
-                "647,570 ",
-                "THUNO TUDONG HD0095/CTYTHIEN PHUC "
-            ],
-            [
-                "4018130741 ",
-                "01/07/2022 ",
-                "01/07/2022 ",
-                "SC32 ",
-                "",
-                "33,000 ",
-                "0 ",
-                "614,570 ",
-                ""
-            ],
-            [
-                "4024713145 ",
-                "05/07/2022 ",
-                "05/07/2022 ",
-                "SMR1 ",
-                "",
-                "30,000 ",
-                "0 ",
-                "584,570 ",
-                ""
-            ],
-            [
-                "4024713146 ",
-                "05/07/2022 ",
-                "05/07/2022 ",
-                "VATX ",
-                "",
-                "3,000 ",
-                "0 ",
-                "581,570 ",
-                ""
-            ],
-            [
-                "4029703859 ",
-                "09/07/2022 ",
-                "09/07/2022 ",
-                "NBCR ",
-                "",
-                "0 ",
-                "13,000,000 ",
-                "13.581.570 ",
-                "NOPTIEN-090722- 08:10:59762782 "
-            ],
-            [
-                "4030345858 ",
-                "09/07/2022 ",
-                "09/07/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "12,877,750 ",
-                "0 ",
-                "703,820 ",
-                "THUNOTU DONG HD0095/CTYTHIEN PHUC "
-            ],
-            [
-                "4063703738 ",
-                "31/07/2022 ",
-                "31/07/2022 ",
-                "SC32 ",
-                "",
-                "33,000 ",
-                "0 ",
-                "670,820 ",
-                ""
-            ],
-            [
-                "4072380882 ",
-                "05/08/2022 ",
-                "05/08/2022 ",
-                "SMR1 ",
-                "",
-                "30.000 ",
-                "",
-                "640.820 ",
-                ""
-            ],
-            [
-                "4072380883 ",
-                "05/08/2022 ",
-                "05/08/2022 ",
-                "VATX ",
-                "",
-                "3,000 ",
-                "0 ",
-                "637,820 ",
-                ""
-            ],
-            [
-                "4077965387 ",
-                "09/08/2022 ",
-                "09/08/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "12,637,820 ",
-                "0 ",
-                "500,000 ",
-                "THUNOTUDONG HD0095/CTYTHIEN PHUC "
-            ],
-            [
-                "4078872806 ",
-                "10/08/2022 ",
-                "10/08/2022 ",
-                "FTCR ",
-                "60122027538 80 ",
-                "0 ",
-                "500.000 ",
-                "1.000.000 ",
-                "IBNOPTIEN "
-            ],
-            [
-                "4079755709 ",
-                "10/08/2022 ",
-                "10/08/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "225,839 ",
-                "0 ",
-                "774,161 ",
-                "THUNO TU DONG HD0095/CTYTHIEN "
-            ],
-            [
-                "4092996906 ",
-                "19/08/2022 ",
-                "19/08/2022 ",
-                "FTCR ",
-                "60122028758 94 ",
-                "0 ",
-                "62,000.000 ",
-                "62,774,161 ",
-                "IBNOPTIEN "
-            ],
-            [
-                "4114255972 ",
-                "01/09/2022 ",
-                "01/09/2022 ",
-                "SC32 ",
-                "",
-                "33,000 ",
-                "0 ",
-                "62,741,161 ",
-                ""
-            ],
-            [
-                "4127118892 ",
-                "09/09/2022 ",
-                "09/09/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "22,753,403 ",
-                "0 ",
-                "39,987,758 ",
-                "THUNOTUDONG HD0095/CTYTHIEN "
-            ],
-            [
-                "4131691146 ",
-                "12/09/2022 ",
-                "12/09/2022 ",
-                "NBCR ",
-                "",
-                "0 ",
-                "12,800,000 ",
-                "52,787,758 ",
-                "Nguyen Thanh Dien chuyen tien "
-            ],
-            [
-                "4134941955 ",
-                "14/09/2022 ",
-                "14/09/2022 ",
-                "CLDR ",
-                "0000981684 ",
                 "50,000,000 ",
-                "0 ",
-                "2,787.758 ",
-                "THUGOCHOANCC T10.11,12.1,2/CTY CP XAY DU'NG GIAO THONG THIEN PHUC "
+                "6,883,750,476 "
             ],
             [
-                "4163367783 ",
-                "01/10/2022 ",
-                "01/10/2022 ",
-                "SC32 ",
+                "23 ",
+                "13/03/2023 ",
+                "FT230721SJSW\\BNK ",
+                "MAIPHUONGNOP TIEN VAO TK ",
                 "",
-                "33,000 ",
+                "80,000,000 ",
+                "6,963,750,476 "
+            ],
+            [
+                "24 ",
+                "13/03/2023 ",
+                "FT23072GLKTB\\BNK ",
+                "MBVCB.3221286133.098547 MAIPHUONGNOP TIEN VAO TK.CT TU 0711000232464NGUYEN VAN MINH TOI 0032100002839004 CTTNHH TMDVYNHAKHOAMINH PHUONGNGANHANG PHUONG DONG (OCB) ",
+                "0 ",
+                "10,000,000 ",
+                "6,973,750,476 "
+            ],
+            [
+                "25 ",
+                "13/03/2023 ",
+                "FT23072NRFZY\\BNK ",
+                "OCB:0032100002839004;MAI PHUONG NOPTIENVAO TK ",
                 "",
-                "2,754,758 ",
-                ""
+                "40,000,000 ",
+                "7,013,750,476 "
             ],
             [
-                "4178836625 ",
-                "10/10/2022 ",
-                "10/10/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "2,254,758 ",
+                "26 ",
+                "13/03/2023 ",
+                "FT23072T2GPB\\BNK ",
+                "MAI PHUONG NOP TIEN VAO TK ",
                 "0 ",
-                "500,000 ",
-                "THUNOTUDONG HD0095/CTYTHIEN PHUC "
+                "40,000,000 ",
+                "7,053,750,476 "
             ],
             [
-                "BTTLR3888 4/32 ",
-                "11/10/2022 ",
-                "11/10/2022 ",
-                "CASD ",
-                "",
+                "27 ",
+                "13/03/2023 ",
+                "FT23072Z22SR\\BNK ",
+                "MBVCB.3223331723.089289 MAIPHUONGNOP TIEN VAO TK.CT TU 0711000232464NGUYEN VAN MINH TOI 0032100002839004 CT TNHH TMDVYNHA KHOAMINH PHUONGNGANHANG PHUONG DONG (OCB) ",
                 "0 ",
-                "10,500,000 ",
-                "11,000,000 ",
-                "NGUYEN THANH DIEN NOP TIENVAY "
+                "81,000,000 ",
+                "7,134,750,476 "
             ],
             [
-                "4180638556 ",
-                "11/10/2022 ",
-                "11/10/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "9.821.742 ",
+                "28 ",
+                "14/03/2023 ",
+                "LD2236000089 ",
+                "THANHTOANLAITD ",
+                "21,917,808 ",
                 "0 ",
-                "1,178,258 ",
-                "THUNOTUDONG HD0095/CTYTHIEN PHUC "
+                "7,112,832,668 "
             ],
             [
-                "4212704604 ",
-                "30/10/2022 ",
-                "30/10/2022 ",
-                "SC32 ",
-                "",
-                "33,000 ",
+                "29 ",
+                "14/03/2023 ",
+                "LD2236000089 ",
+                "THANHTOANGOC TD ",
+                "4,000,000,000 ",
                 "0 ",
-                "1,145,258 ",
-                ""
+                "3,112,832,668 "
             ],
             [
-                "24294867 ",
-                "05/11/2022 ",
-                "05/11/2022 ",
-                "SMR1 ",
-                "",
-                "30,000 ",
+                "30 ",
+                "14/03/2023 ",
+                "FT23073H2SQ7 ",
+                "OCB PGDDONGDO GIAI NGANTHEO KUNN0032081.02/2023/KUN N/OCB/DN LD2307300264 KHCT TNHH TMDVYNHA KHOA MINH PHUONG NGAY 14/03/2023 ",
                 "0 ",
-                "1,115,258 ",
-                ""
+                "8,500,000,000 ",
+                "11,612,832,668 "
             ],
             [
-                "4224294868 ",
-                "05/11/2022 ",
-                "05/11/2022 ",
-                "VATX ",
-                "",
-                "3,000 ",
+                "31 ",
+                "14/03/2023 ",
+                "FX2307300124\\BNK ",
+                "KHCTTNHHTMDVYNHA KHOAMINHPHUONGMUA SGD THANH TOAN 1O0 HOP DONGSO GC-875 (MINH) NGAY 04/01/2022 ",
+                "11,572,981,450 ",
                 "0 ",
-                "1,112,258 ",
-                ""
+                "39,851,218 "
             ],
             [
-                "4230665269 ",
-                "09/11/2022 ",
-                "09/11/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "612,258 ",
+                "32 ",
+                "14/03/2023 ",
+                "FT23073QXWYN ",
+                "PMTFOR1OOPCTOF SALES CNT NO.GC-875(MINH) DD 04JAN2022 ",
+                "26,025,416 ",
                 "0 ",
-                "500,000 ",
-                "THUNOTUDONG HD0095/CTYTHIEN PHUC "
+                "13,825,802 "
             ],
             [
-                "4231588983 ",
-                "10/11/2022 ",
-                "10/11/2022 ",
-                "NBCR ",
-                "",
+                "33 ",
+                "23/03/2023 ",
+                "FT23082ZDWTM\\BN K ",
+                "MBVCB.3270474180.022322 NGUYENVANMINH CHUYENTIEN.CT TU 0711000232464 NGUYEN VANMINHTOI 0032100002839004 CT TNHH TMDVYNHA KHOAMINH PHUONGNGANHANG PHUONGDONGOCB ",
                 "0 ",
-                "11,200,000 ",
-                "11,700,000 ",
-                "NOPTIEN-101122- 0834:04076443 "
+                "30,740,000 ",
+                "44,565,802 "
             ],
             [
-                "4232689703 10/11/2022 10/11/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "11,200,000 ",
+                "STT/No ",
+                "Ngay/Date ",
+                "So GDI Transaction number ",
+                "Noi Dung/Content ",
+                "Ps giam(No)/ Debit ",
+                "Ps tang(Co)/ Credit ",
+                "So duI Balance "
+            ],
+            [
+                "34 ",
+                "24/03/2023 ",
+                "FT23083PJCL1\\BNK ",
+                "MBVCB.3272982673.052067 NGUYENMAIPHUONGNOP TIENVAO TK.CT TU 0711000232464 NGUYEN VAN MINH TOI 0032100002839004 CT TNHH TMDVY NHA KHOA MINH PHUONGNGANHANG PHUONG DONG (OCB) ",
                 "0 ",
-                "500,000 ",
-                "THU NO TU DONG HD0095/CTYTHIEN PHUC "
+                "250,000,000 ",
+                "294,565,802 "
             ],
             [
-                "423412541211/11/2022 11/11/2022 TKoi Ung 607704060205949 Ctpy A/C No. ",
-                "EBCR ",
-                "",
+                "35 ",
+                "24/03/2023 ",
+                "FX2308300049\\BNK ",
+                "CTTNHHTMDVYNHA KHOA MINH PHUONGMUA 10.500USD TG 23.600 CUA NH OCBDE THANH TOAN HANGNHAPKHAU ",
+                "247,800,000 ",
                 "0 ",
-                "5,630 ",
-                "505,630 ",
-                "LEMINH KHOA chuven tien den CTY CPXAY DUNG GIAO THONG THIEN PHUC- 607704060102224 "
+                "46,765,802 "
             ],
             [
-                "423470969311/11/2022 11/11/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "5,629 ",
+                "36 ",
+                "24/03/2023 ",
+                "FT23083R2JD5 ",
+                "ADV PMNT 100PCT OF CNTNO.12MP/2023DD 16/03/2023 ",
+                "988,277 ",
                 "0 ",
-                "500,001 ",
-                "THUNOTUDONG HD0095/CTYTHIEN "
+                "45,777,525 "
             ],
             [
-                "423556379812/11/2022 12/11/2022 ",
-                "NBCR ",
-                "",
+                "37 ",
+                "25/03/2023 ",
+                "FT230845S1FD\\BNK ",
+                "MBVCB.3278132468.022005 NGUYENVANMINH CHUYEN TIEN.CT TU 0711000232464 NGUYEN VAN MINH TOI 0032100002839004 CT TNHH TMDVYNHAKHOAMINH PHUONGNGANHANG PHUONG DONG (OCB) ",
                 "0 ",
-                "200,000 ",
-                "700,001 ",
-                "NOPTIEN-121122 08:10:55211782 "
+                "490,000,000 ",
+                "535,777,525 "
             ],
             [
-                "4266558760 29/11/2022 29/11/2022 ",
-                "SC32 ",
-                "",
-                "33,000 ",
+                "38 ",
+                "25/03/2023 ",
+                "FT23084WCQJ9\\BNK ",
+                "MBVCB.3278136831.025168 NGUYENVANMINH CHUYEN TIEN.CT TU 0711000232464 NGUYEN VAN MINH TOI 0032100002839004 CT TNHH TMDVYNHA KHOAMINH PHUONGNGANHANG PHUONG DONG (OCB) ",
                 "0 ",
-                "667,001 ",
-                ""
+                "10,000,000 ",
+                "545,777,525 "
             ],
             [
-                "4278668764 05/12/2022 05/12/2022 ",
-                "SMR1 ",
-                "",
-                "30,000 ",
+                "39 ",
+                "25/03/2023 ",
+                "LD2307300264 ",
+                "THANHTOANLAITD ",
+                "30,739,726 ",
                 "0 ",
-                "637,001 ",
-                ""
+                "515,037,799 "
             ],
             [
-                "4278668765 05/12/2022 05/12/2022 ",
-                "VATX ",
-                "",
-                "3,000 ",
+                "40 ",
+                "25/03/2023 ",
+                "0032100002839004-20 230326 ",
+                "GHI COLAI TIEN GUI ",
                 "0 ",
-                "634,001 ",
-                ""
+                "152,682 ",
+                "515,190,481 "
             ],
             [
-                "428545962109/12/2022 09/12/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "134,001 ",
+                "41 ",
+                "27/03/2023 ",
+                "FT230864GFPQ\\BNK ",
+                "MAI PHUONG NOP TIEN VAO TK ",
                 "0 ",
-                "500,000 ",
-                "THUNOTUDONG HD0095/CTYTHIEN PHUC "
+                "400,000,000 ",
+                "915,190,481 "
             ],
             [
-                "429617388715/12/2022 15/12/2022 ",
-                "NBCR ",
-                "",
+                "42 ",
+                "27/03/2023 ",
+                "FT23086PN6W6\\BNK ",
+                "MAI PHUONG NOP TIEN VAO TK ",
                 "0 ",
-                "162,100,000 ",
-                "162,600,000 ",
-                "TATTOANKHOAN VAY-151222- "
+                "100,000,000 ",
+                "1,015,190,481 "
             ],
             [
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "13:31:04236614 "
-            ],
-            [
-                "4296206750 15/12/2022 15/12/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "160,000,000 ",
+                "43 ",
+                "27/03/2023 ",
+                "LD2307300264 ",
+                "GIAM NO GOC ",
+                "1,000,000,000 ",
                 "0 ",
-                "2,600,000 ",
-                "THUTTKU0095/CTY CPXAY DUNG GIAO THONG THIEN PHUC(PHAT0%) (XE-KHOA) "
+                "15,190,481 "
             ],
             [
-                "4296208722 15/12/2022 15/12/2022 ",
-                "CLDR ",
-                "0000981684 ",
-                "2,048,331 ",
+                "44 ",
+                "29/03/2023 ",
+                "FT230887ZBNZ\\BNK ",
+                "MBVCB.3296099207.062130 NOP TIENVAO TK.CT TU 1022063873 NGUYEN MAI PHUONG TOI 0032100002839004 CT TNHH TMDVY NHA KHOA MINH PHUONG NGAN HANG PHUONGDONG(OCB) ",
                 "0 ",
-                "551,669 ",
-                "THU TTKU0095/CTY CP XAY DUNG GIAO THONG THIEN PHUC(PHAT 0%) (XE-KHOA) "
+                "122.236.000 ",
+                "137,426,481 "
             ],
             [
-                "429621190015/12/2022 15/12/2022 ",
-                "FTDR ",
-                "60722712634 46 ",
-                "50,000 ",
+                "STT/No ",
+                "NgayIDate ",
+                "So GDI Transaction number ",
+                "Noi Dung/Content ",
+                "Ps giam(No)/ Debit ",
+                "Ps tang(Co)/ Credit ",
+                "So duI Balance "
+            ],
+            [
+                "45 ",
+                "29/03/2023 ",
+                "FX2308800071\\BNK ",
+                "CTTNHHTMDVYNHA KHOA MINHPHUONGMUA 5.145USD TG 23.600 CUA NH OCBDE THANH TOAN1O0 PHAN TRAM HOA DONCHIEU LE SO JJ2023030601 NGAY 28.0 ",
+                "121,422,000 ",
                 "0 ",
-                "501,669 ",
-                "THUPHIXOAGDDE CTY THIEN PHUC "
+                "16,004,481 "
             ],
             [
-                "S6CT ",
-                "Ngay GD ",
-                "Ngay hieu luc ",
-                "Loai ",
-                "GD Sosec/So ref ",
-                "Phat sinh ng ",
-                "Phat sinh co ",
-                "sodu ",
-                "Noi dung "
+                "46 ",
+                "29/03/2023 ",
+                "FT23088MKGM0 ",
+                "ADVPAYMENT IOOPCTOF PROFORMAINVOICE NO.JJ2023030601 DD 28 MAR2023 ",
+                "779,394 ",
+                "0 ",
+                "15,225,087 "
             ]
         ]
     }
@@ -1110,11 +737,11 @@ const checkCreditAmount = (amount, worksheet) => {
     const readTransactionFromPDF = input => {
         let titleIndex = null;
 
-        const timeKeys = ['Ngay giao dich (Trans.Date)', 'Ngay ', 'Ngay hieu luc'];
-        const referenceNumberKeys = ['Ma giao dich (Trans.Code)', 'S6 GD ', 'S6CT'];
-        const debitKeys = ['Phat sinh no (Debit amount)', 'Ghi ng ', 'Phat sinh ng'];
-        const creditKeys = ['Phat sinh co (Credit amount)', 'Ghi c6 ', 'Phat sinh co'];
-        const descriptionKeys = ['Dien giai (Txn. Description)', 'Dien giai ', 'Noi dung'];
+        const timeKeys = ['Ngay giao dich (Trans.Date)', 'Ngay ', 'Ngay hieu luc', 'Ngay gia tri', 'Ngay gia tri Value Date', 'Ngay/Date'];
+        const referenceNumberKeys = ['Ma giao dich (Trans.Code)', 'S6 GD ', 'S6CT', 'S6 giao djch', 'So but toan Trans.ID', 'So GDI Transaction number'];
+        const debitKeys = ['Phat sinh no (Debit amount)', 'Ghi ng ', 'Phat sinh ng', 'No', 'Phat sinh No', `So tien ghi ng' Debit Amount`, 'Ps giam(No)/ Debit'];
+        const creditKeys = ['Phat sinh co (Credit amount)', 'Ghi c6 ', 'Phat sinh co', 'C6', 'Phat sinh Co', 'So tien ghi co Credit Amount', 'Ps tang(Co)/ Credit'];
+        const descriptionKeys = ['Dien giai (Txn. Description)', 'Dien giai', 'Noi dung', 'Noi dung giao dich Trans.Detail', 'Noi Dung/Content'];
 
         const bankAccount = input.account_number;
         const data = input.data.map(row => row.map(cell => cell.trim()));
@@ -1125,7 +752,7 @@ const checkCreditAmount = (amount, worksheet) => {
         const getIndex = (row = [], keys) =>{
             let index = null;
             for (const [idx, element] of row.entries()){
-                if(includes(keys, element)){
+                if(includes(keys, element.trim())){
                     index = idx;
                     break;
                 }
@@ -1137,7 +764,7 @@ const checkCreditAmount = (amount, worksheet) => {
         const checkRowContainsMoment = row => {
             let status = false;
             for (const element of row){
-                if(moment(element).isValid() && !status){
+                if(moment(element.trim(), 'DD/MM/YYYY').isValid() && !status){
                     status = true;
                 }
             }
@@ -1166,13 +793,15 @@ const checkCreditAmount = (amount, worksheet) => {
                 bankAccount,
                 transactionDate: item[getIndex(data[titleIndex], timeKeys)],
                 description: item[getIndex(data[titleIndex], descriptionKeys)],
-                debitAmount: item[getIndex(data[titleIndex], debitKeys)],
-                creditAmount: item[getIndex(data[titleIndex], creditKeys)],
-                referenceNumber: item[getIndex(data[titleIndex], referenceNumberKeys)],
+                debitAmount: item[getIndex(data[titleIndex], debitKeys)] || 0,
+                creditAmount: item[getIndex(data[titleIndex], creditKeys)] || 0,
+                referenceNumber: item[getIndex(data[titleIndex], referenceNumberKeys)] || '',
             }
         }))
 
-        console.log('====', titleIndex);
+        // console.log('====', titleIndex);
+        // console.log('date: ', moment(data[1][2],'DD/MM/YYYY').isValid())
+        // console.log('x',data[1][2] );
         
     }
 
