@@ -33,6 +33,7 @@ const checkNextRow = row => {
 const findTimeIndex = row => {
     let index = 0;
     some(row.values, item => {
+        (row._number === 4 ? (row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item)))[3]?.text === 'Ngày hiệu lực ' : null) ? index = 3 : 
         (row._number === 6 ? (row.values.flatMap(elm => Object.values(elm).flatMap(item => item)))[1]?.text === 'Ngày giờ giao dịch\nTransaction Date Time' : null) ? index = 2 :
         (row._number === 8 ? (row.values.flatMap(elm => Object.values(elm).flatMap(item => item)))[0]?.text === "Ngày giao" : null) ? index = 1 :
         (row._number === 12 ? (row.values.flatMap(elm => Object.values(elm).flatMap(item => item)))[0]?.text === "Ngày hiệu lực" : null) ? index = 3 :
@@ -50,6 +51,7 @@ const findDescriptionIndex = row => {
             row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[28]?.text === 'Nội dung' ? index = 10
             : row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[6]?.text === 'Diễn giải\nDescription' ? index = 7
             : row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[5]?.text === 'Mô tả' ? index = 7
+            : row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[12]?.text === 'Description' ? index = 6
             : includes(getRichTextValue(row.values[7]), 'Nội dung chi tiết/') ? index = 7
             : includes(descriptionKeyword, item) ? index = indexOf(row.values, item) : null;
         })
@@ -62,6 +64,7 @@ const findReferenceNumberIndex = row => {
         find(row.values, item => {
             row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[20]?.text === 'Số bút toán' ? index = 7 
             : row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[9]?.text === '/\nTNX Date/ Số CT/ Doc No' ? index = 2 
+            : row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[8]?.text === 'Doc.No' ? index = 4
             : includes(descriptionKeyword, item) ? index = indexOf(row.values, item) : null;
         })
     return index;
@@ -74,8 +77,8 @@ const findCreditAmountIndex = row => {
         row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[4]?.text === 'Phát sinh có\nCredit Amount' ? index = 5 
         : row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[26]?.text === 'Phát sinh có' ? index = 9
         : row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[3]?.text === 'Ghi có' ? index = 5
+        : row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[22]?.text === 'Credit' ? index = 11
         : includes(getRichTextValue(row.values[5]), 'Số tiền ghi có/') ? index = 5
-
         : includes(descriptionKeyword, item) ? index = indexOf(row.values, item) : null;
     })
 return index;
@@ -88,6 +91,7 @@ const findDebitAmountIndex = row => {
         row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[3]?.text === 'Phát sinh nợ\nDebit Amount' ? index = 4 
         : row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[24]?.text === 'Phát sinh nợ' ? index = 8
         : row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[2]?.text === 'Ghi nợ' ? index = 4
+        : row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[20]?.text === 'Debit' ? index = 10
         : includes(getRichTextValue(row.values[4]), 'Số tiền ghi nợ/') ? index = 4
         : includes(descriptionKeyword, item) ? index = indexOf(row.values, item) : null;
     })
@@ -124,6 +128,7 @@ const getAccountNumber = row => {
         : includes(row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[1]?.text, 'Số tài khoản:') ? accountNumbers = row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[1]?.text.match(/\d+/g)[0]
         : includes(row.values[1], 'Tai Khoan:') ? accountNumbers = slice(row.values[1],11,24).join('')
         : row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[37]?.text === '/Account No: ' ? accountNumbers = row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[38]?.text
+        : row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[0]?.text === 'TÀI KHOẢN ' ? accountNumbers = row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[4]?.text.match(/\d+/)[0]
         : row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[2]?.text === 'Số tài khoản / Account No.:' ? typeof row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[3] === 'object' ? accountNumbers =row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[3]?.text: accountNumbers = slice(row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item)), 3,18).join('').match(/\d+/)[0]
         // : (slice(row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item)), 0, 26).join('') === 'Số tài khoản/ Account No.:') ? accountNumbers = slice(row.values.flatMap(elm => Object.values(elm).flatMap(item => item)), 26).join('')
         : includes(listAccountNumbers, item) ? accountNumbers = (`${row.values[indexOf(row.values, item) + 1]}` === `${row.values[indexOf(row.values, item)]}` ? row.values[indexOf(row.values, item) + 2] : `${row.values[indexOf(row.values, item) + 1]}`)
@@ -196,78 +201,83 @@ const checkCreditAmount = (amount, worksheet) => {
     return getAmount(amount[findDebitAmountIndex(worksheet.getRow(headerInd))])
  }
 
-// workbook.xlsx.readFile(path.resolve(__dirname, 'roc.xlsx')).then(function() {
-//         var worksheet = workbook.getWorksheet(1);
-//         worksheet.eachRow({ includeEmpty: true }, function(row, rowNumber) {
-//         if(some(row.values, item => includes(keywords, item))
-//          || (rowNumber === 6 ? (row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item)))[1]?.text === 'Ngày giờ giao dịch\nTransaction Date Time' : null)
-//          || (rowNumber === 8 ? (row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item)))[0]?.text === "Ngày giao" : null)
-//          || (rowNumber === 12 ? (row.values.flatMap(elm => Object.values(elm).flatMap(item => item)))[0]?.text === "Ngày hiệu lực" : null)
-//          || (rowNumber === 14 ? getRichTextValue(row.values[3]) === 'Ngày hiệu lực' : null)
-//          ){
-//             flag = rowNumber;
-//             headerInd = rowNumber;
-//             // console.log('xxx', `${worksheet.getRow(rowNumber + 1).values[findRowIndex(row)]}`);
-//             // console.log(moment(moment(worksheet.getRow(rowNumber + 1).values[findRowIndex(row)]).format('DD/MM/YYYY'),'DD/MM/YYYY').isValid());
-//             if(!(moment(moment(`${getRichTextValue(worksheet.getRow(rowNumber + 1).values[findTimeIndex(row)])}`).format('DD/MM/YYYY'),'DD/MM/YYYY').isValid()
-//             || moment(`${getRichTextValue(worksheet.getRow(rowNumber + 1).values[findTimeIndex(row)])}`, 'DD/MM/YYYY').isValid())){
-//                 flag = rowNumber + 1;
-//             }
-//         }
-//         // // => Debug here:
-//         if(rowNumber === 3) {
-//             console.log(row.values)
-//             console.log('xxxx', row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[2]?.text);
-//             // console.log('xxxxx', row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[40]?.text === 'Ngân hàng đối tác');
-//             // checkNextRow(worksheet.getRow(rowNumber + 1).values);
-//             // console.log('Row :' + rowNumber + ' ' + `${Object.values(row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[7])}` === 'Ngày');
-//             // console.log(includes(getRichTextValue(row.values[4]), 'Số tiền ghi nợ/'))
-//             // console.log('xxxx',row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[3]);
-//             // console.log('===', row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[7]?.text);
-//             // console.log('Row ' + rowNumber + ' = ' + includes(row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[1]?.text, 'Số tài khoản:'));
-//             // console.log(row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[1]?.text.match(/\d+/g)[0]);
-//             // console.log('xxx',row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[9].text === '/\nTNX Date/ Số CT/ Doc No');
-//             // console.log(includes(getRichTextValue(row.values[4]), 'Số tiền ghi nợ/'));
-//             // checkNextRow(worksheet.getRow(rowNumber + 1).values);
-//             // console.log('xxx', row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[30]);
-//             // console.log(getBankName(row));
-//             // console.log('x', );
-//             // some(row.values, item => {
-//             // includes(listAccountNumbers, item) ? console.log('xxx', row.values[indexOf(row.values, item) + 1]) : null
-//             // })
-//             // console.log('xx', moment('01-12-2022 14:52:42', 'DD/MM/YYYY', true).isValid());
-//         }
-//         getAccountNumber(row);
-//         getBankName(row);
-//         if(rowNumber > flag && worksheet.getRow(rowNumber).hasValues && inProgress){
-//             checkNextRow(worksheet.getRow(rowNumber + 1).values);
-//             // console.log('Row ' + rowNumber + ' = ' + JSON.stringify(row.values));
-//             result.push(row.values);
-//         }
-//         })
+workbook.xlsx.readFile(path.resolve(__dirname, 'hdbank.xlsx')).then(function() {
+        var worksheet = workbook.getWorksheet(1);
+        worksheet.eachRow({ includeEmpty: true }, function(row, rowNumber) {
+        if(some(row.values, item => includes(keywords, item))
+         || (rowNumber === 4 ? (row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item)))[3]?.text === 'Ngày hiệu lực ' : null)
+         || (rowNumber === 6 ? (row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item)))[1]?.text === 'Ngày giờ giao dịch\nTransaction Date Time' : null)
+         || (rowNumber === 8 ? (row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item)))[0]?.text === "Ngày giao" : null)
+         || (rowNumber === 12 ? (row.values.flatMap(elm => Object.values(elm).flatMap(item => item)))[0]?.text === "Ngày hiệu lực" : null)
+         || (rowNumber === 14 ? getRichTextValue(row.values[3]) === 'Ngày hiệu lực' : null)
+         ){
+            flag = rowNumber;
+            headerInd = rowNumber;
+            // console.log('xxx', `${worksheet.getRow(rowNumber + 1).values[findRowIndex(row)]}`);
+            // console.log(moment(moment(worksheet.getRow(rowNumber + 1).values[findRowIndex(row)]).format('DD/MM/YYYY'),'DD/MM/YYYY').isValid());
+            if(!(moment(moment(`${getRichTextValue(worksheet.getRow(rowNumber + 1).values[findTimeIndex(row)])}`).format('DD/MM/YYYY'),'DD/MM/YYYY').isValid()
+            || moment(`${getRichTextValue(worksheet.getRow(rowNumber + 1).values[findTimeIndex(row)])}`, 'DD/MM/YYYY').isValid())){
+                flag = rowNumber + 1;
+            }
+        }
+        // // => Debug here:
+        if(rowNumber === 4) {
+            // console.log(row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item)))
+            // console.log('xxxx', row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[0]?.text);
+            // console.log('xxxxx', row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[40]?.text === 'Ngân hàng đối tác');
+            // checkNextRow(worksheet.getRow(rowNumber + 1).values);
+            // console.log(getRichTextValue(row.values[3])==='TÀI KHOẢN ');
+            // console.log(includes(getRichTextValue(row.values[4]), 'Số tiền ghi nợ/'))
+            // console.log('xxxx',row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[3]);
+            // console.log('===', row.values.flatMap(elm => Object.values(elm).flatMap(item => item))[7]?.text);
+            // console.log('Row ' + rowNumber + ' = ' + includes(row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[1]?.text, 'Số tài khoản:'));
+            // console.log(row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[1]?.text.match(/\d+/g)[0]);
+            // console.log('xxx',row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[9].text === '/\nTNX Date/ Số CT/ Doc No');
+            // console.log(includes(getRichTextValue(row.values[4]), 'Số tiền ghi nợ/'));
+            // checkNextRow(worksheet.getRow(rowNumber + 1).values);
+            // console.log('xxx', row.values.flatMap(elm => Object.values(elm || {}).flatMap(item => item))[30]);
+            // console.log(getBankName(row));
+            // console.log('x', );
+            // some(row.values, item => {
+            // includes(listAccountNumbers, item) ? console.log('xxx', row.values[indexOf(row.values, item) + 1]) : null
+            // })
+            // console.log('xx', moment('01-12-2022 14:52:42', 'DD/MM/YYYY', true).isValid());
+        }
+        getAccountNumber(row);
+        getBankName(row);
+        if(rowNumber > flag && worksheet.getRow(rowNumber).hasValues && inProgress){
+            checkNextRow(worksheet.getRow(rowNumber + 1).values);
+            // console.log('Row ' + rowNumber + ' = ' + JSON.stringify(row.values));
+            result.push(row.values);
+        }
+        })
 
-//         // console.log(result.map((item, ind) => {
-//         //     return {
-//         //         index: ind + 1,
-//         //         bankAccount: accountNumbers.match(/\d+/)[0],
-//         //         bankName: bankName || null,
-//         //         descriptions: getRichTextValue(item[findDescriptionIndex(worksheet.getRow(headerInd))]) || '',
-//         //         transactionsDate: moment(getRichTextValue(item[findTimeIndex(worksheet.getRow(headerInd))]), 'DD/MM/YYYY').valueOf(),
-//         //         transactionBank: getRichTextValue(item[getTransactionBankIndex(worksheet.getRow(headerInd))]) || '',
-//         //         referenceNumber: getRichTextValue(item[findReferenceNumberIndex(worksheet.getRow(headerInd))]) || '',
-//         //         creditAmount: checkCreditAmount(item, worksheet) || 0,
-//         //         objectCredit: {
-//         //             account: item[findCreditAmountIndex(worksheet.getRow(headerInd))] ? getRichTextValue(item[findReceiverAccountIndex(worksheet.getRow(headerInd))]) || null  : null,
-//         //             name: item[findCreditAmountIndex(worksheet.getRow(headerInd))] ? getRichTextValue(item[findReceiverNameIndex(worksheet.getRow(headerInd))]) || null  : null,
-//         //         },
-//         //         debitAmount: checkDebitAmount(item, worksheet) || 0,
-//         //         objectDebit: {
-//         //             account: item[findDebitAmountIndex(worksheet.getRow(headerInd))] ? getRichTextValue(item[findReceiverAccountIndex(worksheet.getRow(headerInd))]) || null : null,
-//         //             name: item[findDebitAmountIndex(worksheet.getRow(headerInd))] ? getRichTextValue(item[findReceiverNameIndex(worksheet.getRow(headerInd))]) || null  : null,
-//         //         },
-//         //     }
-//         // }))
-//     });
+        console.log(result.map((item, ind) => {
+            if(ind === 10) console.log('==', findDescriptionIndex(worksheet.getRow(headerInd)));
+            return {
+                index: ind + 1,
+                bankAccount: accountNumbers.match(/\d+/)[0],
+                bankName: bankName || null,
+                descriptions: getRichTextValue(item[findDescriptionIndex(worksheet.getRow(headerInd))]) || '',
+                transactionsDate: moment(getRichTextValue(item[findTimeIndex(worksheet.getRow(headerInd))]), 'DD/MM/YYYY').valueOf(),
+                transactionBank: getRichTextValue(item[getTransactionBankIndex(worksheet.getRow(headerInd))]) || '',
+                referenceNumber: getRichTextValue(item[findReferenceNumberIndex(worksheet.getRow(headerInd))]) || '',
+                creditAmount: checkCreditAmount(item, worksheet) || 0,
+                objectCredit: {
+                    account: item[findCreditAmountIndex(worksheet.getRow(headerInd))] ? getRichTextValue(item[findReceiverAccountIndex(worksheet.getRow(headerInd))]) || null  : null,
+                    name: item[findCreditAmountIndex(worksheet.getRow(headerInd))] ? getRichTextValue(item[findReceiverNameIndex(worksheet.getRow(headerInd))]) || null  : null,
+                },
+                debitAmount: checkDebitAmount(item, worksheet) || 0,
+                objectDebit: {
+                    account: item[findDebitAmountIndex(worksheet.getRow(headerInd))] ? getRichTextValue(item[findReceiverAccountIndex(worksheet.getRow(headerInd))]) || null : null,
+                    name: item[findDebitAmountIndex(worksheet.getRow(headerInd))] ? getRichTextValue(item[findReceiverNameIndex(worksheet.getRow(headerInd))]) || null  : null,
+                },
+            }
+        }))
+    });
+
+
+// ==========================================================
 
     const pdfData = {
         "account_number": "0107247754",
@@ -762,14 +772,12 @@ const checkCreditAmount = (amount, worksheet) => {
 
         // Kiểm tra row chứa ngày giờ
         const checkRowContainsMoment = row => {
-            let status = false;
-            for (const element of row){
-                if(moment(element.trim(), 'DD/MM/YYYY').isValid() && !status){
-                    status = true;
-                }
-            }
-            return status;
-        };
+        let status = false;
+        if (moment(row[getIndex(data[titleIndex], timeKeys)].replace(data[titleIndex][getIndex(data[titleIndex], timeKeys)], ''), 'DD/MM/YYYY').isValid()) {
+          status = true;
+        }
+        return status;
+      };
 
         // Tìm vị trí của hàng tiêu đề cột
         const detectTitleIndex = (row, index, keys) => {
@@ -805,4 +813,4 @@ const checkCreditAmount = (amount, worksheet) => {
         
     }
 
-    readTransactionFromPDF(pdfData);
+    // readTransactionFromPDF(pdfData);
